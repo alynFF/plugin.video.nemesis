@@ -41,7 +41,7 @@
 			<import addon="script.module.requests" version="2.19.1" />
 			<import addon="script.tikiart" version="1.0.0" />
 			<import addon="script.module.myaccounts" version="0.0.0" />
-			<import addon="script.module.nemesisomscrapers" version="0.0.0" />
+			<import addon="script.module.fenomscrapers" version="0.0.0" />
 		</requires>
 		<extension library="resources/lib/nemesis.py" point="xbmc.python.pluginsource">
 			<provides>video</provides>
