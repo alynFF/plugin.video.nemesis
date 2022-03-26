@@ -1,0 +1,73 @@
+<addon id="plugin.video.nemesis" name="Nemesis" provider-name="Nemesis" version="2.6.09">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0" />
+        <import addon="script.module.requests" version="2.19.1" />
+        <import addon="script.tikiart" version="1.0.0" />
+        <import addon="script.module.myaccounts" version="0.0.0" />
+        <import addon="script.module.fenomscrapers" version="0.0.0" />
+    </requires>
+    <extension library="resources/lib/nemesis.py" point="xbmc.python.pluginsource">
+        <provides>video</provides>
+    </extension>
+    <extension library="resources/lib/service.py" point="xbmc.service" />
+    <extension library="resources/lib/" point="xbmc.python.module" />
+    <extension point="kodi.context.item">
+        <menu id="kodi.core.main">
+            <item library="resources/contextmenu/refresh_widgets.py">
+                <label>40001</label>
+                <visible>String.IsEqual(ListItem.Property(nemesis_widget),true)</visible>
+            </item>
+            <item library="resources/contextmenu/mark_watched.py">
+                <label>40003</label>
+                <visible>[String.IsEqual(ListItem.dbtype,movie) | String.IsEqual(ListItem.dbtype,episode)] + String.IsEqual(ListItem.Property(nemesis_widget),true) + String.IsEqual(ListItem.Property(nemesis_playcount),0)</visible>
+            </item>
+            <item library="resources/contextmenu/mark_unwatched.py">
+                <label>40004</label>
+                <visible>[String.IsEqual(ListItem.dbtype,movie) | String.IsEqual(ListItem.dbtype,episode)] + String.IsEqual(ListItem.Property(nemesis_widget),true) + String.IsEqual(ListItem.Property(nemesis_playcount),1)</visible>
+            </item>
+            <item library="resources/contextmenu/clear_progress.py">
+                <label>40009</label>
+                <visible>[String.IsEqual(ListItem.dbtype,movie) | String.IsEqual(ListItem.dbtype,episode)] + String.IsEqual(ListItem.Property(nemesis_widget),true) + String.IsEqual(ListItem.Property(nemesis_in_progress),true)</visible>
+            </item>
+            <item library="resources/contextmenu/browse.py">
+                <label>40002</label>
+                <visible>String.IsEqual(ListItem.dbtype,episode) + String.IsEqual(ListItem.Property(nemesis_widget),true)</visible>
+            </item>
+            <item library="resources/contextmenu/trakt_manager.py">
+                <label>40005</label>
+                <visible>[String.IsEqual(ListItem.dbtype,movie) | String.IsEqual(ListItem.dbtype,tvshow)] + String.IsEqual(ListItem.Property(nemesis_widget),true)</visible>
+            </item>
+            <item library="resources/contextmenu/favorites_manager.py">
+                <label>40008</label>
+                <visible>[String.IsEqual(ListItem.dbtype,movie) | String.IsEqual(ListItem.dbtype,tvshow)] + String.IsEqual(ListItem.Property(nemesis_widget),true)</visible>
+            </item>
+            <item library="resources/contextmenu/play_random.py">
+                <label>40010</label>
+                <visible>[String.IsEqual(ListItem.dbtype,tvshow)] + String.IsEqual(ListItem.Property(nemesis_widget),true)</visible>
+            </item>
+            <item library="resources/contextmenu/options.py">
+                <label>40007</label>
+                <visible>String.IsEqual(ListItem.Property(nemesis_widget),true)</visible>
+            </item>
+            <item library="resources/contextmenu/extras.py">
+                <label>40006</label>
+                <visible>String.IsEqual(ListItem.Property(nemesis_widget),true)</visible>
+            </item>
+        </menu>
+    </extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">[B][COLOR red]Nemesis[/COLOR][/B] - We do not host any of the contents streamed</summary>
+		<description lang="en">[B][COLOR red]Nemesis[/COLOR][/B] - This addon does not form part of the Kodi Media Centre. Please do not seek assistance with this addon from any of the Official Kodi Support Channels.The author does not host any of the content in this addon and takes no responsibility for content found.</description>
+		<disclaimer lang="en">The author is not responsible for the use of this addon. The author is not responsible for the content found using this addon. The author does not host or own any content found within this addon. The author is in no way affiliated with Kodi, Team Kodi, or the XBMC Foundation. This is a Non-profit resource, organized solely for educational purposes which is protected under the Fair-Use doctrine of the Copyright Act, Specifically section 107, which does promote freedom of expression, by permitting the unlicensed use of copyright-protected works.</disclaimer>
+		<platform>all</platform>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+			<screenshot></screenshot>
+		</assets>
+		<news>
+[B][COLOR red]Create - v1.0 - March 26, 2022[/COLOR][/B]
+[COLOR yellow]--[/COLOR][I] Created Nemesis Repository and Kodi Source.[/I]
+		</news>
+	</extension>
+</addon>
